@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+<body>
+<h2>Users</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Surname</th>
+        <th>Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${allUsers}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.surname}"></td>
+        <td>
+            <table>
+                <tr th:each="role : ${user.roles}">
+                    <td th:text="${role.name}"></td>
+                </tr>
+            </table>
+        </td>
+        <td><a th:href="@{/admin/edit/{id}(id=${user.id})}">Update</a></td>
+        <td><a th:href="@{admin/delete/{id}(id=${user.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<br/>
+<form th:method="GET" th:action="@{/admin/new}">
+    <button type="submit">New User</button>
+</form>
+<br/>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="LOGOUT"/>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Show info</title>
+</head>
+<body>
+<h2>User info:</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Surname</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.surname}"></td>
+    </tr>
+    </tbody>
+</table>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="LOGOUT"/>
+</form>
+</div>
+</body>
+</html>
